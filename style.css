@@ -363,7 +363,7 @@ section.visible {
 }
 
 .timeline-item:nth-child(odd)::after {
-    right: 0;
+    right: 0px;
     transform: translate(50%, -50%);
 }
 
@@ -447,13 +447,24 @@ footer p {
     .timeline-item:nth-child(odd), .timeline-item:nth-child(even) {
         left: 0;
         padding-left: 50px;
+        padding-right: 1rem;
     }
     .timeline-item:nth-child(odd) .timeline-content, .timeline-item:nth-child(even) .timeline-content {
         text-align: left;
     }
     .timeline-item::after {
         left: 20px;
-        transform: translateX(-50%);
+        transform: translate(-50%, -50%);
+    }
+
+    /* Shift odd timeline circles to the left in mobile view */
+    .timeline-item:nth-child(odd)::after {
+        left: -8px; /* Original was 20px */
+    }
+
+    /* Shift even timeline circles to the right in mobile view */
+    .timeline-item:nth-child(even)::after {
+        left: 20px; /* Original was 20px */
     }
 }
 
@@ -489,8 +500,8 @@ footer p {
 
 .timeline-item:nth-child(odd) .timeline-content h3::after {
     float: left;
-    margin-left: 0;
-    margin-right: 10px;
+    margin-left: -15px;
+    margin-right: 0px;
 }
 
 .timeline-content.open h3::after {
@@ -599,56 +610,4 @@ footer p {
 
 .mobile-nav-links a:hover {
     background-color: var(--background-color);
-}
-
-@media (max-width: 768px) {
-    .nav-links {
-        display: none;
-    }
-
-    .hamburger-menu {
-        display: block;
-    }
-
-    .mobile-nav-menu.open {
-        max-height: 500px; /* Adjust as needed */
-    }
-
-    .hero-text h1 {
-        font-size: 2.2rem;
-    }
-
-    .hero-text .subtitle {
-        font-size: 1rem;
-    }
-
-    .section-title {
-        font-size: 2rem;
-    }
-
-    .card {
-        padding: 2rem;
-    }
-
-    #experience .timeline::after {
-        left: 15px;
-    }
-
-    .timeline-item {
-        padding-left: 40px;
-        padding-right: 0.5rem;
-    }
-
-    .timeline-item:nth-child(odd), .timeline-item:nth-child(even) {
-        padding-left: 40px;
-    }
-
-    .timeline-item::after {
-        left: 15px;
-        transform: translate(-50%, -50%);
-    }
-
-    #hero {
-        margin-bottom: 2rem;
-    }
 }
